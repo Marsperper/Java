@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Axios</title>
+  <script src="../vue1/js/axios-0.18.0.js"></script>
+</head>
+<body>
+<input type="button" value="GET" onclick="get()">
+<input type="button" value="POST" onclick="post()">
+</body>
+<script>
+  function get(){
+    axios({
+      method:"get",
+      url:""
+    }).then(result => {
+      console.log(result.data)
+    })
+  }
+  function post() {
+    axios({
+      method: "post",
+      url: ""
+    }).then(result => {
+      console.log(result.data)
+    })
+  }
+</script>
+</html>

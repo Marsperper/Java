@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app"> <!--表明vue接管的区域就是div这块-->
+    <input type="text" v-model:type="message">
+    {{message}}<br/>
+    <a :href="url">百度链接1</a>
+    <input type="button" value="点击按钮" v-on:click="handle()"> <br/>
+
+    年龄<input type="text" v-model="age">,经判定为:
+    <span v-if="age <= 35">年轻人</span>
+    <span v-else-if="age > 35 && age < 60">中年人</span>
+    <span v-else>老年人</span><br/>
+
+    年龄{{age}},经判定为:
+    <span v-show="age <= 35">年轻人</span>
+    <span v-show="age > 35 && age < 60">中年人</span>
+    <span v-show="age >= 60">老年人</span>
+
+    <hr/>
+    巡演地点顺序：
+    <div v-for="(addr,index) in addrs">{{index + 1}} : {{addr}}</div>
+</div>
+</body>
+<script>
+  //定义一个Vue对象
+  new Vue({
+      el:"#app",
+      data:{
+          message:"Hello world!",
+          url:"https://www.baidu.com",
+          age:20,
+          addrs:['杭州','成都','武汉','长沙','北京']
+      },
+      mounted(){
+          alert("vue挂载完成！")
+      },
+      methods:{
+          handle:function () {
+              alert("点击了一下");
+          }
+      }
+  })
+</script>
+</html>
